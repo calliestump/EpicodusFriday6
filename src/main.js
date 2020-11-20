@@ -8,23 +8,23 @@ function clear() {
   $("#usAmount").val("");
   $("#exchangeTo").val("");
 }
+
 $(document).ready(function() {
-  $("form#exchange").submit(function(event) {
+  $("#exchange").submit(function(event) {
     event.preventDefault();
     const userAmount = $("#usAmount").val();
     const exgRate = $("#exchangeTo").val();
-    clear();
-
+    //Number(exgRate);
+    //const exgRate = document.getElementById("exchangeTo");
+    //const finalRate = exgRate.value;
     $(".amountVAL").append(userAmount);
     $(".exgVAL").append(exgRate);
-
+    clear();
     let promise = Exchange.getUSD(exgRate);
-
     promise.then(function(response) {
       const body = JSON.parse(response);
-      $(".convertedTotal").text(`${exgRate} is ${body.conversion_rates.exgRate}`);
+      $(".convertedTotal").text(`Your conversion for ${exgRate} is ${parseInt(userAmount * body.conversion_rates.CAD).toFixed()} ${exgRate}`);
       //let amount = parseInt($("#usAmount").val())
     });
-
   });
 });
