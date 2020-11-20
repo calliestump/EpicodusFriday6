@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-US">
  <head>
-   <title>Webpage Name</title>
+   <title>Currency Exchange</title>
  </head> 
  <body>
    <div class="container">
-     <h1>Title</h1>
-     <form id="">
-       
+     <div class="jumbotron">
+      <h1>Currency Exchange</h1>
+     </div>
+     <form id="exchange">
+       <label class="usAmount">Please enter a U.S dollar amount: </label><br>
+       <input id="usAmount" type="text"><br><br>
+       <label>What would you like to exchange to?</label>
+       <select class="form-control" id="exchangeTo">
+         <option value="none">-None-</option>
+         <option value="cnd">CND (Canadian)</option>
+         <option value="aud">AUD (Australian)</option>
+         <option value="nzd">NZD (New Zealand)</option>
+         <option value="bgn">BGN (Bulgarian)</option>
+         <option value="fjd">FJD (Fijian)</option>
+       </select>
+       <br><button class="btn btn-dark">Exchange</button>
+       <div class="convertedTotal">
+       </div>
      </form>
    </div>
  </body>
