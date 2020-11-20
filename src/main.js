@@ -14,6 +14,7 @@ $(document).ready(function() {
     event.preventDefault();
     $(".conversionResult").show();
     let userAmount = $("#usAmount").val();
+    //userAmount.toFixed(2);
     //const usdRate = 1;
     let exgRate = $("#exchangeTo").val();
     clear();
@@ -26,18 +27,18 @@ $(document).ready(function() {
       const sol = body.conversion_rates.PEN;
       const lira = body.conversion_rates.TRY;
       if (exgRate == "CAD") {
-        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is $${parseInt(userAmount * canadian).toFixed()}`);
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is $${parseInt(userAmount * canadian).toFixed(2)}`);
       } else if (exgRate == "RUB") {
-        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₽${parseInt(userAmount * ruble).toFixed()}`);
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₽${parseInt(userAmount * ruble).toFixed(2)}`);
       } else if (exgRate == "MYR") {
-        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is RM${parseInt(userAmount * ringgit).toFixed()}`);
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is RM/${parseInt(userAmount * ringgit).toFixed(2)}`);
       } else if (exgRate == "PEN") {
-        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is S/${parseInt(userAmount * sol).toFixed()}`);
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is S/${parseInt(userAmount * sol).toFixed(2)}`);
       } else if (exgRate == "TRY") {
-        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₺${parseInt(userAmount * lira).toFixed()}`);
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₺${parseInt(userAmount * lira).toFixed(2)}`);
       } else if (exgRate == "none") {
-        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₺${parseInt(userAmount * lira).toFixed()}`);
-      }   
+        alert("Please make a selection");
+      }     
     }, 
     function(rejectedResponse) {
       $(".error").text(`Oh no! Something went wrong. Here's what we're getting: ${rejectedResponse}`);
