@@ -3,7 +3,7 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import Exchange from "./currency.js";
-
+$(".conversionResult").hide();
 function clear() {
   $("#usAmount").val("");
   $("#exchangeTo").val("");
@@ -12,19 +12,37 @@ function clear() {
 $(document).ready(function() {
   $("#exchange").submit(function(event) {
     event.preventDefault();
-    const userAmount = $("#usAmount").val();
-    const exgRate = $("#exchangeTo").val();
-    //Number(exgRate);
-    //const exgRate = document.getElementById("exchangeTo");
-    //const finalRate = exgRate.value;
-    $(".amountVAL").append(userAmount);
-    $(".exgVAL").append(exgRate);
+    $(".conversionResult").show();
+    let userAmount = $("#usAmount").val();
+    //const usdRate = 1;
+    let exgRate = $("#exchangeTo").val();
     clear();
-    let promise = Exchange.getUSD(exgRate);
-    promise.then(function(response) {
-      const body = JSON.parse(response);
-      $(".convertedTotal").text(`Your conversion for ${exgRate} is ${parseInt(userAmount * body.conversion_rates.CAD).toFixed()} ${exgRate}`);
-      //let amount = parseInt($("#usAmount").val())
+    let promise = Exchange.getConversion(exgRate);
+    promise.then(function(resolvedResponse) {
+      const body = JSON.parse(resolvedResponse);
+      const canadian = body.conversion_rates.CAD;
+      const ruble = body.conversion_rates.RUB;
+      const ringgit = body.conversion_rates.MYR;
+      const sol = body.conversion_rates.PEN;
+      const lira = body.conversion_rates.TRY;
+      if (exgRate == "CAD") {
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is $${parseInt(userAmount * canadian).toFixed()}`);
+      } else if (exgRate == "RUB") {
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₽${parseInt(userAmount * ruble).toFixed()}`);
+      } else if (exgRate == "MYR") {
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is RM${parseInt(userAmount * ringgit).toFixed()}`);
+      } else if (exgRate == "PEN") {
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is S/${parseInt(userAmount * sol).toFixed()}`);
+      } else if (exgRate == "TRY") {
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₺${parseInt(userAmount * lira).toFixed()}`);
+      } else if (exgRate == "none") {
+        $(".convertedTotal").text(`$${userAmount} in ${exgRate} is ₺${parseInt(userAmount * lira).toFixed()}`);
+      }   
+    }, 
+    function(rejectedResponse) {
+      $(".error").text(`Oh no! Something went wrong. Here's what we're getting: ${rejectedResponse}`);
+      console.log("Oh no, an error!");
+      console.log(rejectedResponse);
     });
   });
 });
