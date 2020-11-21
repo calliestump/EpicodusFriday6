@@ -6,16 +6,17 @@ body {
 .container {
   padding: 7%;
 }
-
 .jumbotron {
   background-color: rgb(170, 170, 94);
   box-shadow: 0 10px 10px 0 rgba(100, 145, 74, 0.178), 0 6px 20px 0 black;
 }
 input {
+  text-align: center;
   background-color: rgb(170, 170, 94);;
 }
 #exchangeTo {
   background-color: rgb(170, 170, 94);;
+  border-color: black;
 }
 
 .btn {
@@ -26,4 +27,7 @@ form {
   border-style: solid;
   border-color:  rgb(170, 170, 94);
   padding: 3%;
+}
+h1 {
+  color: rgb(63, 63, 46);
 }

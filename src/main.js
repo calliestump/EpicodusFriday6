@@ -4,11 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import Exchange from "./currency.js";
 $(".conversionResult").hide();
+
 function clear() {
   $("#usAmount").val("");
   $("#exchangeTo").val("");
 }
-
 $(document).ready(function() {
   $("#exchange").submit(function(event) {
     event.preventDefault();
@@ -38,5 +38,8 @@ $(document).ready(function() {
       console.log("Oh no, an error!");
       console.log(rejectedResponse);
     });
+  });
+  $("#usAmount, #exchangeTo").click(function() {
+    $(".conversionResult").hide();
   });
 });
