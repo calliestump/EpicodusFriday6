@@ -46,6 +46,12 @@ git remote add origin https://github.com/calliestump/Friday6
     <th>Completed</th>
   </tr>
   <tr>
+    <td>Should clear input fields when form is submitted..</td>
+    <td>clear();</td>
+    <td>Input fields 1&2 are empty</td>
+    <td>True</td>
+  </tr>    
+  <tr>
     <td>Should correctly convert the users input (USD) to any implemented currency.</td>
     <td>$8.00USD</td>
     <td>$10.48</td>

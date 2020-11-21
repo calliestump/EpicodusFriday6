@@ -1,6 +1,7 @@
 body {
   background-color:rgb(192, 184, 112);
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 .container {
   padding: 7%;
@@ -8,4 +9,21 @@ body {
 
 .jumbotron {
   background-color: rgb(170, 170, 94);
+  box-shadow: 0 10px 10px 0 rgba(100, 145, 74, 0.178), 0 6px 20px 0 black;
+}
+input {
+  background-color: rgb(170, 170, 94);;
+}
+#exchangeTo {
+  background-color: rgb(170, 170, 94);;
+}
+
+.btn {
+  color: black;
+}
+
+form {
+  border-style: solid;
+  border-color:  rgb(170, 170, 94);
+  padding: 3%;
 }

@@ -9,10 +9,10 @@
       <h1>Currency Exchange</h1>
      </div>
      <form id="exchange">
-       <label for="usAmount">Please enter a U.S dollar amount: </label><br>
+       <label for="usAmount"><strong>Please enter a U.S dollar amount:</strong></label><br>
        <input id="usAmount" placeholder="0.00" type="text"><br><br>
        <div class="amountVAL"></div>
-       <label>What would you like to exchange to?</label>
+       <label><strong>What would you like to exchange to?</strong></label>
        <select class="form-control" id="exchangeTo">
          <option value="none">-None-</option>
          <option value="CAD">CAD (Canadian)</option>
@@ -22,10 +22,10 @@
          <option value="TRY">TRY (Turkish Lira)</option>
        </select>
        <div class="exgVAL"></div>
-       <br><button class="btn btn-dark">Exchange</button><hr>
+       <br><button class="btn btn-secondary">Exchange</button><hr>
        <div class="conversionResult">
         <h2><u>Result</u></h2>
-        <div class="convertedTotal"></div><hr>
+        <div class="convertedTotal"></div>
         <div class="error"></div><hr>
        </div>
      </form>
