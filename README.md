@@ -59,6 +59,7 @@ dist/
 coverage/
 .env <-
 ```
+You now have a working API Key that is connected to your webpage. Congratulations!
 
 ## **Technologies Used**
 * HTML
