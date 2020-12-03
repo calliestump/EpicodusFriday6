@@ -21,6 +21,24 @@ $ cd Desktop
 $ cd [known directory]
 $ code .
 ```
+5. Navigate to the VS terminal and download your dependencies with node.
+```
+npm install
+```
+6. If you wish to run a live server run the following code:
+```
+npm run start
+```
+7. To see if the program is functioning properly you can use:
+```
+npm run build
+```
+This will show you if everything is compiling correctly; if otherwise you be will prompt with error messages.
+
+8. In order to run the tests for functionality, run the following code:
+```
+npm run test
+```
 #### Dont forget that in order to push any changes you need to add your own GitHub repo. to your project.
 ```
 git remote add origin https://github.com/calliestump/Friday6
