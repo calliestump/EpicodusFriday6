@@ -8,7 +8,6 @@
 This project will allow the user to enter a U.S dollar amount, then convert it to a different currency. The user is allowed five different conversions. 
 
 ## **Setup**
-User will need to have an [Exchange Rate API key](https://www.exchangerate-api.com/). Follow the instructions to make a personal key. Once finished, use the generated link supplied for the API. 
 1. Copy this download link: https://github.com/calliestump/Friday6.git
 2. Open bash and go to the directory where you would like to store your cloned project.
 3. Clone the repo.
@@ -43,6 +42,24 @@ npm run test
 ```
 git remote add origin https://github.com/calliestump/Friday6
 ```
+**API Instructions**
+
+User will need to have an [Exchange Rate API key](https://www.exchangerate-api.com/). Follow the instructions to make a personal key. Once finished, use the generated link supplied for the API. 
+
+1. Create a .env file in the "src" tab.
+2. Once your .env file is created, add your API Key to the file.
+```
+API_KEY=[generated key]
+```
+3. Now that your .env file is ready, we can add it  to our .gitignore file it so it doesnt get pushed to GitHub.
+```
+node_modules/
+.DS_Store
+dist/
+coverage/
+.env <-
+```
+
 ## **Technologies Used**
 * HTML
 * CSS
